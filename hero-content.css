@@ -450,3 +450,222 @@
   }
 
 }
+/* =========================================
+   COMMON PAGE LAYOUT
+========================================= */
+
+.page-container{
+    padding-top:140px;
+    padding-left:80px;
+    padding-right:80px;
+    padding-bottom:100px;
+
+    min-height:100vh;
+
+    position:relative;
+    z-index:10;
+}
+
+.page-header{
+    text-align:center;
+    margin-bottom:80px;
+}
+
+.page-header h1{
+    font-family:'Cinzel',serif;
+
+    font-size:4rem;
+
+    letter-spacing:12px;
+
+    color:white;
+
+    text-shadow:
+      0 0 20px rgba(0,242,254,0.6),
+      0 0 40px rgba(236,72,153,0.25);
+}
+
+.page-header p{
+    margin-top:20px;
+
+    color:rgba(255,255,255,0.7);
+
+    font-size:1.1rem;
+}
+
+/* =========================================
+   GLASS CARD
+========================================= */
+
+.glass-card{
+
+    background:
+      linear-gradient(
+        145deg,
+        rgba(255,255,255,0.10),
+        rgba(255,255,255,0.04)
+      );
+
+    border:1px solid rgba(255,255,255,0.14);
+
+    backdrop-filter:blur(24px);
+
+    border-radius:30px;
+
+    padding:40px;
+
+    box-shadow:
+      0 0 40px rgba(120,180,255,0.10),
+      0 0 120px rgba(120,180,255,0.08);
+}
+
+/* =========================================
+   HOME PAGE
+========================================= */
+
+.home-grid{
+    display:grid;
+
+    grid-template-columns:
+      repeat(auto-fit,minmax(300px,1fr));
+
+    gap:30px;
+}
+
+.home-card h2{
+    margin-bottom:20px;
+
+    color:#7fd6ff;
+
+    letter-spacing:2px;
+}
+
+.home-card p{
+    color:rgba(255,255,255,0.75);
+
+    line-height:1.8;
+}
+
+/* =========================================
+   MUSIC PAGE
+========================================= */
+
+.music-grid{
+    display:grid;
+
+    grid-template-columns:
+      repeat(auto-fit,minmax(280px,1fr));
+
+    gap:30px;
+}
+
+.music-card{
+    transition:.4s ease;
+}
+
+.music-card:hover{
+    transform:translateY(-8px);
+
+    box-shadow:
+      0 0 30px rgba(0,242,254,0.25),
+      0 0 60px rgba(236,72,153,0.12);
+}
+
+.music-card h3{
+    color:#7fd6ff;
+    margin-bottom:12px;
+}
+
+.music-card p{
+    color:rgba(255,255,255,0.7);
+}
+
+/* =========================================
+   NEWS PAGE
+========================================= */
+
+.news-list{
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+}
+
+.news-card h2{
+    color:#7fd6ff;
+    margin-bottom:10px;
+}
+
+.news-date{
+    color:#d7a6ff;
+    font-size:.9rem;
+}
+
+.news-card p{
+    margin-top:15px;
+
+    line-height:1.8;
+
+    color:rgba(255,255,255,0.75);
+}
+
+/* =========================================
+   FAQ PAGE
+========================================= */
+
+.faq-container{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.faq-item{
+
+    background:
+      linear-gradient(
+        145deg,
+        rgba(255,255,255,0.08),
+        rgba(255,255,255,0.03)
+      );
+
+    border-radius:20px;
+
+    border:1px solid rgba(255,255,255,0.12);
+
+    overflow:hidden;
+}
+
+.faq-item summary{
+
+    padding:22px 28px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    color:white;
+}
+
+.faq-item p{
+
+    padding:0 28px 22px;
+
+    color:rgba(255,255,255,0.75);
+
+    line-height:1.8;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:768px){
+
+    .page-container{
+        padding-left:25px;
+        padding-right:25px;
+    }
+
+    .page-header h1{
+        font-size:2.5rem;
+    }
+}
