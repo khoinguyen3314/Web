@@ -1,78 +1,109 @@
-<main class="page-container">
+<!DOCTYPE html>
+<html lang="en">
 
-    <div class="page-header">
-        <h1>PROFILE</h1>
-        <p>Your Rhythm Journey</p>
-    </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <div class="profile-layout">
+    <title>Rhythm Game | Profile</title>
 
-        <div class="glass-card profile-card">
+    <link rel="stylesheet" href="background.css">
+<link rel="stylesheet" href="Home.css">
+</head>
 
-            <div class="profile-avatar">
-                <img src="images/avatar.jpg" alt="Avatar">
+<body>
+
+    <!-- Background -->
+    <canvas id="rhythm-canvas"></canvas>
+
+    <div class="vignette-overlay"></div>
+    <div class="ambient-glow-1"></div>
+    <div class="ambient-glow-2"></div>
+    <div class="ambient-glow-center"></div>
+
+    <!-- Main Content -->
+    <main class="page-container">
+
+        <div class="page-header">
+            <h1>PROFILE</h1>
+            <p>Your Rhythm Journey</p>
+        </div>
+
+        <div class="profile-layout">
+
+            <div class="glass-card profile-card">
+
+                <div class="profile-avatar">
+                    <img src="images/avatar.jpg" alt="Avatar">
+                </div>
+
+                <h2>Nguyen Player</h2>
+
+                <span class="player-rank">
+                    Diamond Rank
+                </span>
+
             </div>
 
-            <h2>Nguyen Player</h2>
+            <div class="glass-card profile-stats">
 
-            <span class="player-rank">
-                Diamond Rank
-            </span>
+                <div class="stat-box">
+                    <h3>Level</h3>
+                    <span>57</span>
+                </div>
+
+                <div class="stat-box">
+                    <h3>Accuracy</h3>
+                    <span>98.72%</span>
+                </div>
+
+                <div class="stat-box">
+                    <h3>Total Score</h3>
+                    <span>5,289,400</span>
+                </div>
+
+                <div class="stat-box">
+                    <h3>Play Count</h3>
+                    <span>2,381</span>
+                </div>
+
+            </div>
 
         </div>
 
-        <div class="glass-card profile-stats">
+        <div class="glass-card recent-play">
 
-            <div class="stat-box">
-                <h3>Level</h3>
-                <span>57</span>
-            </div>
+            <h2>Recent Plays</h2>
 
-            <div class="stat-box">
-                <h3>Accuracy</h3>
-                <span>98.72%</span>
-            </div>
+            <table class="ranking-table">
 
-            <div class="stat-box">
-                <h3>Total Score</h3>
-                <span>5,289,400</span>
-            </div>
+                <tr>
+                    <td>Fracture Ray</td>
+                    <td>EX+</td>
+                    <td>9,987,654</td>
+                </tr>
 
-            <div class="stat-box">
-                <h3>Play Count</h3>
-                <span>2,381</span>
-            </div>
+                <tr>
+                    <td>Halcyon</td>
+                    <td>EX</td>
+                    <td>9,854,210</td>
+                </tr>
+
+                <tr>
+                    <td>Conflict</td>
+                    <td>AA</td>
+                    <td>9,102,333</td>
+                </tr>
+
+            </table>
 
         </div>
 
-    </div>
+    </main>
 
-    <div class="glass-card recent-play">
+    <!-- Background Script -->
+    <script src="js/background.js"></script>
 
-        <h2>Recent Plays</h2>
+</body>
 
-        <table class="ranking-table">
-
-            <tr>
-                <td>Fracture Ray</td>
-                <td>EX+</td>
-                <td>9,987,654</td>
-            </tr>
-
-            <tr>
-                <td>Halcyon</td>
-                <td>EX</td>
-                <td>9,854,210</td>
-            </tr>
-
-            <tr>
-                <td>Conflict</td>
-                <td>AA</td>
-                <td>9,102,333</td>
-            </tr>
-
-        </table>
-
-    </div>
-
-</main>
+</html>

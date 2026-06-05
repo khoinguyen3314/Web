@@ -1,53 +1,87 @@
-<main class="page-container">
+<!DOCTYPE html>
+<html lang="en">
 
-    <div class="page-header">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Library - Rhythm Game</title>
 
-        <h1>MUSIC</h1>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght=300;400;500;600;700&display=swap" rel="stylesheet">
 
-        <p>
-            Song Library
-        </p>
+    <link rel="stylesheet" href="background.css">
+<link rel="stylesheet" href="Home.css">
+</head>
 
-    </div>
+<body>
 
-    <div class="music-grid">
+    <canvas id="rhythm-canvas"></canvas>
+    <div class="vignette-overlay"></div>
+    <div class="ambient-glow-1"></div>
+    <div class="ambient-glow-2"></div>
+    <div class="ambient-glow-center"></div>
 
-        <div class="glass-card music-card">
+    <main class="page-container">
 
-            <h3>Fracture Ray</h3>
+        <div class="page-header">
+            <h1>MUSIC LIBRARY</h1>
+            <p>Khám phá và nghe thử những giai điệu bùng nổ không gian</p>
+        </div>
 
-            <p>Artist: Sakuzyo</p>
+        <div class="glass-card music-search">
+            <input type="text" placeholder="Tìm kiếm bài hát, nghệ sĩ hoặc thể loại...">
+        </div>
 
-            <p>Difficulty: Expert</p>
+        <div class="music-grid">
 
-            <p>BPM: 220</p>
+            <div class="glass-card music-card">
+                <h3>Cybernetic Symphony</h3>
+                <p>Artist: Neon Pulse</p>
+                <div class="music-meta">
+                    <span>BPM: 175</span>
+                    <span>Difficulty: 9★</span>
+                    <span>Genre: Hardcore</span>
+                </div>
+                <button class="preview-btn" style="width: 100%;">⚡ LISTEN PREVIEW</button>
+            </div>
 
-            <br>
+            <div class="glass-card music-card">
+                <h3>Aether Drift</h3>
+                <p>Artist: Starlight Express</p>
+                <div class="music-meta">
+                    <span>BPM: 142</span>
+                    <span>Difficulty: 6★</span>
+                    <span>Genre: Trance</span>
+                </div>
+                <button class="preview-btn" style="width: 100%;">⚡ LISTEN PREVIEW</button>
+            </div>
 
-            <button class="login-btn">
-                Preview
-            </button>
+            <div class="glass-card music-card">
+                <h3>Glitch In The Matrix</h3>
+                <p>Artist: Code:Breaker</p>
+                <div class="music-meta">
+                    <span>BPM: 190</span>
+                    <span>Difficulty: 11★</span>
+                    <span>Genre: Speedcore</span>
+                </div>
+                <button class="preview-btn" style="width: 100%;">⚡ LISTEN PREVIEW</button>
+            </div>
+
+            <div class="glass-card music-card">
+                <h3>Valkyrie Overdrive</h3>
+                <p>Artist: Symphonic Sound</p>
+                <div class="music-meta">
+                    <span>BPM: 160</span>
+                    <span>Difficulty: 8★</span>
+                    <span>Genre: Orchestral</span>
+                </div>
+                <button class="preview-btn" style="width: 100%;">⚡ LISTEN PREVIEW</button>
+            </div>
 
         </div>
 
-        <div class="glass-card music-card">
+    </main>
 
-            <h3>Halcyon</h3>
+    <script src="background.js"></script>
 
-            <p>Artist: xi</p>
-
-            <p>Difficulty: Hard</p>
-
-            <p>BPM: 191</p>
-
-            <br>
-
-            <button class="login-btn">
-                Preview
-            </button>
-
-        </div>
-
-    </div>
-
-</main>
+</body>
+</html>

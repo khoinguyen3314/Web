@@ -1,0 +1,337 @@
+/* =========================================
+   COMMON PAGE LAYOUT & RESET
+========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #0f0f2d;
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.page-container {
+    padding-top: 140px;
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-bottom: 100px;
+    min-height: 100vh;
+    position: relative;
+    z-index: 10;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.page-header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 4rem;
+    letter-spacing: 12px;
+    color: white;
+    text-shadow:
+      0 0 20px rgba(0,242,254,0.6),
+      0 0 40px rgba(236,72,153,0.25);
+}
+
+.page-header p {
+    margin-top: 20px;
+    color: rgba(255,255,255,0.7);
+    font-size: 1.1rem;
+}
+
+/* =========================================
+   GLASS CARD
+========================================= */
+.glass-card {
+    background: linear-gradient(145deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04));
+    border: 1px solid rgba(255,255,255,0.14);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow:
+      0 0 40px rgba(120,180,255,0.10),
+      0 0 120px rgba(120,180,255,0.08);
+}
+
+/* =========================================
+   HOME PAGE & HERO BANNER
+========================================= */
+.hero-banner {
+    position: relative;
+    overflow: hidden;
+    padding: 80px 60px;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.hero-banner h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 3.5rem;
+    letter-spacing: 6px;
+    margin-bottom: 20px;
+    color: white;
+    text-shadow: 0 0 20px rgba(0,242,254,.5), 0 0 40px rgba(236,72,153,.25);
+}
+
+.hero-banner p {
+    max-width: 800px;
+    margin: auto;
+    line-height: 1.9;
+    color: rgba(255,255,255,.75);
+}
+
+.hero-buttons {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.hero-btn {
+    padding: 16px 40px;
+    border: none;
+    border-radius: 18px;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, rgba(0,242,254,.3), rgba(236,72,153,.25));
+    transition: .3s ease;
+}
+
+.hero-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(0,242,254,.3), 0 0 50px rgba(236,72,153,.15);
+}
+
+.section-space {
+    margin-top: 60px;
+}
+
+.home-grid, .feature-grid, .music-grid, .news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.home-card h2, .feature-card h3, .music-card h3 {
+    margin-bottom: 20px;
+    color: #7fd6ff;
+    letter-spacing: 2px;
+}
+
+.home-card p, .feature-card p, .music-card p {
+    color: rgba(255,255,255,0.75);
+    line-height: 1.8;
+}
+
+.page-link {
+    text-decoration: none;
+    color: inherit;       
+    display: block;    
+    transition: 0.4s ease;   
+}
+
+.page-link:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 30px rgba(0,242,254,0.25), 0 0 60px rgba(236,72,153,0.12);
+}
+
+/* =========================================
+   MUSIC LIBRARY PAGE
+========================================= */
+.music-search {
+    margin-bottom: 40px;
+}
+
+.music-search input {
+    width: 100%;
+    padding: 18px;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,.12);
+    background: rgba(255,255,255,.05);
+    color: white;
+    outline: none;
+}
+
+.music-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.music-meta span {
+    padding: 8px 14px;
+    border-radius: 20px;
+    background: rgba(255,255,255,.08);
+    color: white;
+    font-size: .8rem;
+}
+
+.preview-btn {
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 16px;
+    padding: 14px;
+    color: white;
+    background: linear-gradient(135deg, rgba(0,242,254,.3), rgba(236,72,153,.2));
+    transition: .3s ease;
+}
+
+.preview-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(0,242,254,.3);
+}
+
+/* =========================================
+   NEWS PAGE
+========================================= */
+.news-card {
+    overflow: hidden;
+    padding: 0;
+}
+
+.news-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.news-content {
+    padding: 25px;
+}
+
+.news-category {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    background: rgba(0,242,254,.15);
+    color: #7fd6ff;
+    font-size: .8rem;
+}
+
+.news-date {
+    color: #d7a6ff;
+    font-size: .9rem;
+    margin-bottom: 10px;
+}
+
+/* =========================================
+   FAQ ACCORDION PAGE
+========================================= */
+.faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.faq-item {
+    background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.12);
+    overflow: hidden;
+    transition: .3s ease;
+}
+
+.faq-item summary {
+    padding: 22px 28px;
+    cursor: pointer;
+    font-weight: 600;
+    color: white;
+    list-style: none;
+    position: relative;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary::after {
+    content: "+";
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.4rem;
+    color: #7fd6ff;
+}
+
+.faq-item[open] summary::after {
+    content: "−";
+}
+
+.faq-item p {
+    padding: 0 28px 22px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.8;
+}
+
+/* =========================================
+   RANKING PAGE
+========================================= */
+.ranking-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ranking-table th {
+    padding: 20px;
+    text-align: left;
+    color: #7fd6ff;
+    border-bottom: 1px solid rgba(255,255,255,.12);
+}
+
+.ranking-table td {
+    padding: 18px;
+    color: rgba(255,255,255,.8);
+    border-bottom: 1px solid rgba(255,255,255,.05);
+}
+
+.ranking-table tr {
+    transition: .3s ease;
+}
+
+.ranking-table tr:hover {
+    background: rgba(255,255,255,.04);
+}
+
+.rank-badge {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+.rank-1 { background: linear-gradient(135deg, #ffd700, #ffa500); color: #0f0f2d; box-shadow: 0 0 15px rgba(255, 215, 0, 0.6); }
+.rank-2 { background: linear-gradient(135deg, #e0e0e0, #95a5a6); color: #0f0f2d; box-shadow: 0 0 15px rgba(224, 224, 224, 0.4); }
+.rank-3 { background: linear-gradient(135deg, #cd7f32, #a0522d); color: white; box-shadow: 0 0 15px rgba(205, 127, 50, 0.4); }
+.text-neon { color: #00f2fe; text-shadow: 0 0 10px rgba(0, 242, 254, 0.5); }
+.text-accuracy { color: #ec4899; }
+
+/* =========================================
+   RESPONSIVE (MOBILE)
+========================================= */
+@media(max-width:768px){
+    .page-container { padding-left: 25px; padding-right: 25px; }
+    .page-header h1 { font-size: 2.2rem; letter-spacing: 5px; }
+    .hero-banner h2 { font-size: 2rem; }
+    .home-grid, .feature-grid, .music-grid, .news-grid { grid-template-columns: 1fr; }
+}

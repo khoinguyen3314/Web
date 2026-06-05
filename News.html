@@ -1,47 +1,69 @@
-<main class="page-container">
+<!DOCTYPE html>
+<html lang="en">
 
-    <div class="page-header">
-        <h1>NEWS</h1>
-        <p>Latest Updates & Announcements</p>
-    </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latest News - Rhythm Game</title>
 
-    <div class="news-list">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght=300;400;500;600;700&display=swap" rel="stylesheet">
 
-        <div class="glass-card news-card">
+    <link rel="stylesheet" href="background.css">
+<link rel="stylesheet" href="Home.css">
+</head>
 
-            <span class="news-date">
-                20 May 2026
-            </span>
+<body>
 
-            <h2>
-                Version 1.2 Released
-            </h2>
+    <canvas id="rhythm-canvas"></canvas>
+    <div class="vignette-overlay"></div>
+    <div class="ambient-glow-1"></div>
+    <div class="ambient-glow-2"></div>
+    <div class="ambient-glow-center"></div>
 
-            <p>
-                Added 15 new songs,
-                ranking improvements,
-                bug fixes and UI update.
-            </p>
+    <main class="page-container">
+
+        <div class="page-header">
+            <h1>LATEST NEWS</h1>
+            <p>Cập nhật những sự kiện, giải đấu và phiên bản mới nhất</p>
+        </div>
+
+        <div class="news-grid">
+
+            <div class="glass-card news-card">
+                <img src="https://picsum.photos/id/101/600/400" alt="Update Banner">
+                <div class="news-content">
+                    <span class="news-category">UPDATE</span>
+                    <h3>Bản Cập Nhật Ver 2.5: Neon Awakening</h3>
+                    <p class="news-date">June 05, 2026</p>
+                    <p>Khám phá giao diện hoàn toàn mới, tối ưu hóa hệ thống điểm số và bổ sung gói 5 bài hát miễn phí từ các nghệ sĩ EDM hàng đầu.</p>
+                </div>
+            </div>
+
+            <div class="glass-card news-card">
+                <img src="https://picsum.photos/id/102/600/400" alt="Event Banner">
+                <div class="news-content">
+                    <span class="news-category">EVENT</span>
+                    <h3>Giải Đấu Toàn Cầu: Cyber Speed Cup 2026</h3>
+                    <p class="news-date">May 28, 2026</p>
+                    <p>Cơ hội để ghi danh vào bảng xếp hạng huyền thoại và nhận những phần thưởng độc quyền phiên bản giới hạn. Đăng ký ngay hôm nay!</p>
+                </div>
+            </div>
+
+            <div class="glass-card news-card">
+                <img src="https://picsum.photos/id/106/600/400" alt="Artist Banner">
+                <div class="news-content">
+                    <span class="news-category">COLLAB</span>
+                    <h3>Sự Kiện Hợp Tác Đặc Biệt Với "Code:Breaker"</h3>
+                    <p class="news-date">May 15, 2026</p>
+                    <p>Mang đến chùm ca khúc Boss Song siêu khó thách thức mọi giới hạn của người chơi. Bạn đã sẵn sàng chinh phục mức độ 11★?</p>
+                </div>
+            </div>
 
         </div>
 
-        <div class="glass-card news-card">
+    </main>
 
-            <span class="news-date">
-                15 May 2026
-            </span>
+    <script src="background.js"></script>
 
-            <h2>
-                Summer Event Begins
-            </h2>
-
-            <p>
-                Complete missions to earn
-                exclusive event rewards.
-            </p>
-
-        </div>
-
-    </div>
-
-</main>
+</body>
+</html>

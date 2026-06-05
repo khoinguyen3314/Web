@@ -1,108 +1,220 @@
-<main class="page-container">
+<!DOCTYPE html>
+<html lang="en">
 
-    <div class="page-header">
-        <h1>RHYTHM GAME</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rhythm Game</title>
 
-        <p>
-            Feel The Beat Beyond Reality
-        </p>
-    </div>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <section class="glass-card">
+    <link rel="stylesheet" href="background.css">
+    <link rel="stylesheet" href="Home.css">
+    
+    <style>
+        /* CSS bổ sung để đồng bộ Navbar rực rỡ từ trang Đăng nhập qua trang Home */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            z-index: 999;
+            transition: 0.4s ease;
+        }
 
-        <h2>Welcome To The Next Generation Rhythm Experience</h2>
+        .navbar.scrolled {
+            background: rgba(15, 15, 45, 0.65);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-        <p>
-            Chinh phục những bản nhạc tốc độ cao,
-            cạnh tranh trên bảng xếp hạng toàn cầu
-            và khám phá thế giới âm nhạc tương lai.
-        </p>
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            letter-spacing: 6px;
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 0 25px rgba(0, 242, 254, 0.6), 0 0 10px rgba(0, 242, 254, 0.3);
+        }
 
-        <br>
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
 
-        <button class="login-btn">
-            <strong>PLAY NOW</strong>
-        </button>
+        .nav-links a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.92rem;
+            position: relative;
+            transition: 0.3s ease;
+        }
 
-    </section>
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 0%;
+            height: 2px;
+            background: linear-gradient(90deg, #00f2fe, #4facfe);
+            transition: 0.3s ease;
+        }
 
-    <br><br>
+        .nav-links a:hover {
+            color: white;
+            text-shadow: 0 0 15px rgba(0, 242, 254, 0.6);
+        }
 
-    <div class="home-grid">
+        .nav-links a:hover::after {
+            width: 100%;
+        }
 
-        <div class="glass-card home-card">
+        .login-nav-btn {
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            cursor: pointer;
+            font-weight: 500;
+            transition: 0.3s ease;
+        }
 
-            <h2>🎵 100+ Songs</h2>
+        .login-nav-btn:hover {
+            transform: translateY(-2px);
+            border-color: rgba(0, 242, 254, 0.6);
+            background: rgba(0, 242, 254, 0.15);
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+        }
+    </style>
+</head>
 
-            <p>
-                Kho nhạc đa dạng từ EDM,
-                Trance, Hardcore đến Orchestral.
-            </p>
+<body>
 
+    <canvas id="rhythm-canvas"></canvas>
+
+    <div class="vignette-overlay"></div>
+
+    <div class="ambient-glow-1"></div>
+    <div class="ambient-glow-2"></div>
+    <div class="ambient-glow-center"></div>
+
+    <header class="navbar" id="navbar">
+        <div class="logo">
+            RHYTHM GAME
+        </div>
+        <nav class="nav-links">
+            <a href="Home.html">Home</a>
+            <a href="News.html">News</a>
+            <a href="Music.html">Music</a>
+            <a href="FAQ.html">FAQ</a>
+            <a href="index.html" class="login-nav-btn">LOGIN</a>
+        </nav>
+    </header>
+
+    <main class="page-container">
+
+        <div class="page-header">
+            <h1>RHYTHM GAME</h1>
+            <p>Feel The Beat Beyond Reality</p>
         </div>
 
-        <div class="glass-card home-card">
-
-            <h2>🏆 Ranking</h2>
-
+        <section class="glass-card hero-banner">
+            <h2>WELCOME PLAYER</h2>
             <p>
-                Cạnh tranh với người chơi
-                trên toàn thế giới.
+                Chinh phục những bản nhạc tốc độ cao,
+                cạnh tranh trên bảng xếp hạng toàn cầu
+                và khám phá thế giới âm nhạc tương lai.
             </p>
 
-        </div>
+            <div class="hero-buttons">
+                <a href="index.html" style="text-decoration: none;">
+                    <button class="hero-btn">
+                        <strong>PLAY NOW</strong>
+                    </button>
+                </a>
+            </div>
+        </section>
 
-        <div class="glass-card home-card">
+        <section class="section-space">
+            <div class="home-grid">
+                <div class="glass-card home-card">
+                    <h2>🎵 100+ SONGS</h2>
+                    <p>
+                        Kho nhạc đa dạng từ EDM,
+                        Trance, Hardcore đến Orchestral.
+                    </p>
+                </div>
 
-            <h2>🌐 Multiplayer</h2>
+                <a href="Ranking.html" class="glass-card home-card page-link" style="text-decoration: none; color: inherit;">
+                    <h2>🏆 RANKING</h2>
+                    <p>
+                        Cạnh tranh với người chơi
+                        trên toàn thế giới.
+                    </p>
+                </a>
 
-            <p>
-                Chơi cùng bạn bè
-                trong các trận đấu realtime.
-            </p>
+                <div class="glass-card home-card">
+                    <h2>🌐 MULTIPLAYER</h2>
+                    <p>
+                        Chơi cùng bạn bè
+                        trong các trận đấu realtime.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-        </div>
+        <section class="section-space">
+            <div class="feature-grid">
+                <a href="News.html" class="glass-card feature-card page-link">
+                    <h3>📰 NEWS</h3>
+                    <p>
+                        Xem các bản cập nhật,
+                        sự kiện và thông báo mới nhất.
+                    </p>
+                </a>
 
-    </div>
+                <a href="Music.html" class="glass-card feature-card page-link">
+                    <h3>🎵 MUSIC</h3>
+                    <p>
+                        Khám phá thư viện bài hát
+                        và nghe thử các track.
+                    </p>
+                </a>
 
-</main>
-<section class="section-space">
+                <a href="FAQ.html" class="glass-card feature-card page-link">
+                    <h3>❓ FAQ</h3>
+                    <p>
+                        Câu hỏi thường gặp,
+                        hướng dẫn và hỗ trợ người chơi.
+                    </p>
+                </a>
+            </div>
+        </section>
 
-    <div class="feature-grid">
+    </main>
 
-        <a href="News.html" class="glass-card feature-card page-link">
+    <script src="background.js"></script>
+    <script>
+        // Xử lý hiệu ứng làm mờ/đổi màu nền cho Navbar khi cuộn chuột xuống
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
 
-            <h3>📰 NEWS</h3>
+</body>
 
-            <p>
-                Xem các bản cập nhật,
-                sự kiện và thông báo mới nhất.
-            </p>
-
-        </a>
-
-        <a href="Music.html" class="glass-card feature-card page-link">
-
-            <h3>🎵 MUSIC</h3>
-
-            <p>
-                Khám phá thư viện bài hát
-                và nghe thử các track.
-            </p>
-
-        </a>
-
-        <a href="FAQ.html" class="glass-card feature-card page-link">
-
-            <h3>❓ FAQ</h3>
-
-            <p>
-                Câu hỏi thường gặp,
-                hướng dẫn và hỗ trợ người chơi.
-            </p>
-
-        </a>
-
-    </div>
-
-</section>
+</html>
