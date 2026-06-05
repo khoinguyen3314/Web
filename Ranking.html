@@ -1,84 +1,80 @@
-<main class="page-container">
+<!DOCTYPE html>
+<html lang="en">
 
-    <div class="page-header">
-        <h1>RANKING</h1>
-        <p>Global Leaderboard</p>
-    </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Ranking - Rhythm Game</title>
 
-    <div class="glass-card">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght=300;400;500;600;700&display=swap" rel="stylesheet">
 
-        <table class="ranking-table">
+    <link rel="stylesheet" href="background.css">
+<link rel="stylesheet" href="Home.css">
+</head>
 
-            <thead>
+<body>
 
-                <tr>
+    <canvas id="rhythm-canvas"></canvas>
+    <div class="vignette-overlay"></div>
+    <div class="ambient-glow-1"></div>
+    <div class="ambient-glow-2"></div>
+    <div class="ambient-glow-center"></div>
 
-                    <th>#</th>
-                    <th>Player</th>
-                    <th>Country</th>
-                    <th>Accuracy</th>
-                    <th>Score</th>
+    <main class="page-container">
 
-                </tr>
+        <div class="page-header">
+            <h1>GLOBAL RANKING</h1>
+            <p>Nơi vinh danh những ngón tay thần tốc trên toàn thế giới</p>
+        </div>
 
-            </thead>
+        <section class="glass-card" style="padding: 20px; overflow-x: auto;">
+            <table class="ranking-table">
+                <thead>
+                    <tr>
+                        <th style="width: 15%;">HẠNG</th>
+                        <th style="width: 35%;">PLAYER</th>
+                        <th style="width: 25%;">TỔNG ĐIỂM (PR)</th>
+                        <th style="width: 25%;">ĐỘ CHÍNH XÁC</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="rank-badge rank-1">1</span></td>
+                        <td class="text-neon">🚀 MuzikMaster_99</td>
+                        <td><strong>12,450,800</strong></td>
+                        <td class="text-accuracy">99.98%</td>
+                    </tr>
+                    <tr>
+                        <td><span class="rank-badge rank-2">2</span></td>
+                        <td>⚡ CyberChaser</td>
+                        <td><strong>12,398,150</strong></td>
+                        <td class="text-accuracy">99.85%</td>
+                    </tr>
+                    <tr>
+                        <td><span class="rank-badge rank-3">3</span></td>
+                        <td>🎵 Rhythm_God</td>
+                        <td><strong>12,120,400</strong></td>
+                        <td class="text-accuracy">99.54%</td>
+                    </tr>
+                    <tr>
+                        <td><span style="padding-left: 10px;">4</span></td>
+                        <td>NeonVibe_Dx</td>
+                        <td><strong>11,950,000</strong></td>
+                        <td class="text-accuracy">99.12%</td>
+                    </tr>
+                    <tr>
+                        <td><span style="padding-left: 10px;">5</span></td>
+                        <td>GlitchStriker</td>
+                        <td><strong>11,885,320</strong></td>
+                        <td class="text-accuracy">98.95%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
 
-            <tbody>
+    </main>
 
-                <tr>
+    <script src="background.js"></script>
 
-                    <td>🥇</td>
-                    <td>RhythmKing</td>
-                    <td>JP</td>
-                    <td>99.98%</td>
-                    <td>9,999,999</td>
-
-                </tr>
-
-                <tr>
-
-                    <td>🥈</td>
-                    <td>NovaBeat</td>
-                    <td>KR</td>
-                    <td>99.87%</td>
-                    <td>9,985,777</td>
-
-                </tr>
-
-                <tr>
-
-                    <td>🥉</td>
-                    <td>FutureSound</td>
-                    <td>VN</td>
-                    <td>99.82%</td>
-                    <td>9,972,500</td>
-
-                </tr>
-
-                <tr>
-
-                    <td>4</td>
-                    <td>SkyTempo</td>
-                    <td>US</td>
-                    <td>99.71%</td>
-                    <td>9,950,320</td>
-
-                </tr>
-
-                <tr>
-
-                    <td>5</td>
-                    <td>Arclight</td>
-                    <td>CN</td>
-                    <td>99.68%</td>
-                    <td>9,943,200</td>
-
-                </tr>
-
-            </tbody>
-
-        </table>
-
-    </div>
-
-</main>
+</body>
+</html>

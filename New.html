@@ -1,61 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Rhythm Game | News</title>
+    <title>Rhythm Game | News</title>
 
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/page.css">
+    <link rel="stylesheet" href="background.css">
+<link rel="stylesheet" href="Home.css">
 </head>
 
 <body>
 
-<header class="navbar">
+    <!-- Background -->
+    <canvas id="rhythm-canvas"></canvas>
 
-    <h1 class="logo">RHYTHM GAME</h1>
+    <div class="vignette-overlay"></div>
+    <div class="ambient-glow-1"></div>
+    <div class="ambient-glow-2"></div>
+    <div class="ambient-glow-center"></div>
 
-    <nav class="nav-links">
-        <a href="Home.html">Home</a>
-        <a href="News.html">News</a>
-        <a href="Music.html">Music</a>
-        <a href="FAQ.html">FAQ</a>
-    </nav>
+    <!-- Navbar -->
+    <header class="navbar">
 
-</header>
+        <h1 class="logo">RHYTHM GAME</h1>
 
-<main>
+        <nav class="nav-links">
+            <a href="Home.html">Home</a>
+            <a href="News.html">News</a>
+            <a href="Music.html">Music</a>
+            <a href="FAQ.html">FAQ</a>
+        </nav>
 
-<section class="page-header">
+    </header>
 
-    <h2>NEWS</h2>
+    <!-- Main Content -->
+    <main class="page-container">
 
-</section>
+        <section class="page-header">
+            <h2>NEWS</h2>
+        </section>
 
-<section class="news-list">
+        <section class="news-list">
 
-    <article class="news-card">
+            <article class="glass-card news-card">
 
-        <h3>Version 1.0 Released</h3>
+                <h3>Version 1.0 Released</h3>
 
-        <time datetime="2026-05-31">
-            May 31, 2026
-        </time>
+                <time datetime="2026-05-31">
+                    May 31, 2026
+                </time>
 
-        <p>
-            Official release of Rhythm Game.
-        </p>
+                <p>
+                    Official release of Rhythm Game.
+                </p>
 
-    </article>
+            </article>
 
-</section>
+        </section>
 
-</main>
+    </main>
 
-<footer>
-    <p>© 2026 Rhythm Game</p>
-</footer>
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Rhythm Game</p>
+    </footer>
+
+    <!-- Background Script -->
+    <script src="js/background.js"></script>
 
 </body>
+
 </html>
