@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="Home.css">
     
     <style>
-        /* CSS bổ sung để đồng bộ Navbar rực rỡ */
+        /* --- CSS Navbar --- */
         .navbar {
             position: fixed;
             top: 0;
@@ -75,8 +75,8 @@
             width: 100%;
         }
 
-        /* Đổi style từ login-nav-btn thành logout-nav-btn với tone màu đỏ/hồng neon cảnh báo */
-        .logout-nav-btn {
+        /* --- Style gốc cho nút Auth (Mặc định là LOGIN - Xanh Cyan) --- */
+        .auth-nav-btn {
             text-decoration: none;
             padding: 10px 18px;
             border-radius: 14px;
@@ -89,8 +89,19 @@
             transition: 0.3s ease;
         }
 
-        .logout-nav-btn:hover {
+        .auth-nav-btn:hover {
             transform: translateY(-2px);
+            border-color: rgba(0, 242, 254, 0.6);
+            background: rgba(0, 242, 254, 0.15);
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+        }
+
+        /* --- Style khi chuyển thành LOGOUT (Đỏ/Hồng Neon) --- */
+        .auth-nav-btn.is-logged-in {
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .auth-nav-btn.is-logged-in:hover {
             border-color: rgba(255, 75, 75, 0.6);
             background: rgba(255, 75, 75, 0.15);
             box-shadow: 0 0 20px rgba(255, 75, 75, 0.4);
@@ -118,7 +129,7 @@
             <a href="News.html">News</a>
             <a href="Music.html">Music</a>
             <a href="FAQ.html">FAQ</a>
-            <a href="index.html" class="logout-nav-btn" onclick="handleLogout(event)">LOGOUT</a>
+            <a href="index.html" class="auth-nav-btn" id="auth-btn">LOGIN</a>
         </nav>
     </header>
 
@@ -138,7 +149,7 @@
             </p>
 
             <div class="hero-buttons">
-                <a href="Play.html" style="text-decoration: none;">
+                <a href="Play.html" id="play-now-btn" style="text-decoration: none;">
                     <button class="hero-btn">
                         <strong>PLAY NOW</strong>
                     </button>
@@ -150,55 +161,16 @@
             <div class="home-grid">
                 <div class="glass-card home-card">
                     <h2>🎵 100+ SONGS</h2>
-                    <p>
-                        Kho nhạc đa dạng từ EDM,
-                        Trance, Hardcore đến Orchestral.
-                    </p>
+                    <p>Kho nhạc đa dạng từ EDM, Trance, Hardcore đến Orchestral.</p>
                 </div>
-
                 <a href="Ranking.html" class="glass-card home-card page-link" style="text-decoration: none; color: inherit;">
                     <h2>🏆 RANKING</h2>
-                    <p>
-                        Cạnh tranh với người chơi
-                        trên toàn thế giới.
-                    </p>
+                    <p>Cạnh tranh với người chơi trên toàn thế giới.</p>
                 </a>
-
                 <div class="glass-card home-card">
                     <h2>🌐 MULTIPLAYER</h2>
-                    <p>
-                        Chơi cùng bạn bè
-                        trong các trận đấu realtime.
-                    </p>
+                    <p>Chơi cùng bạn bè trong các trận đấu realtime.</p>
                 </div>
-            </div>
-        </section>
-
-        <section class="section-space">
-            <div class="feature-grid">
-                <a href="News.html" class="glass-card feature-card page-link">
-                    <h3>📰 NEWS</h3>
-                    <p>
-                        Xem các bản cập nhật,
-                        sự kiện và thông báo mới nhất.
-                    </p>
-                </a>
-
-                <a href="Music.html" class="glass-card feature-card page-link">
-                    <h3>🎵 MUSIC</h3>
-                    <p>
-                        Khám phá thư viện bài hát
-                        và nghe thử các track.
-                    </p>
-                </a>
-
-                <a href="FAQ.html" class="glass-card feature-card page-link">
-                    <h3>❓ FAQ</h3>
-                    <p>
-                        Câu hỏi thường gặp,
-                        hướng dẫn và hỗ trợ người chơi.
-                    </p>
-                </a>
             </div>
         </section>
 
@@ -206,7 +178,7 @@
 
     <script src="background.js"></script>
     <script>
-        // Xử lý hiệu ứng làm mờ/đổi màu nền cho Navbar khi cuộn chuột xuống
+        // 1. Hiệu ứng cuộn Navbar
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -216,14 +188,47 @@
             }
         });
 
-        // Hàm xử lý logic Đăng xuất (Xóa session nếu có và chuyển hướng)
-        function handleLogout(event) {
-            // Nếu bạn dùng localStorage hoặc sessionStorage để lưu trạng thái đăng nhập, hãy xóa nó ở đây
-            // localStorage.removeItem('userToken'); 
-            
-            // Thông báo thoát thành công (tùy chọn)
-            alert("Bạn đã đăng xuất thành công!");
-        }
+        // 2. LOGIC KIỂM TRA TRẠNG THÁI ĐĂNG NHẬP (QUAN TRỌNG)
+        document.addEventListener("DOMContentLoaded", () => {
+            const authBtn = document.getElementById('auth-btn');
+            const playBtn = document.getElementById('play-now-btn');
+
+            // Kiểm tra biến 'isLoggedIn' trong localStorage (Trang login của bạn cần set biến này bằng true sau khi đăng nhập thành công)
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+
+            if (isLoggedIn) {
+                // Nếu ĐÃ ĐĂNG NHẬP: Biến nút thành LOGOUT
+                authBtn.innerText = "LOGOUT";
+                authBtn.href = "#"; // Chặn không cho nhảy sang index.html ngay lập tức
+                authBtn.classList.add('is-logged-in'); // Thêm class đổi màu đỏ khi hover
+
+                // Cài đặt sự kiện click để đăng xuất
+                authBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    // Xóa trạng thái đăng nhập
+                    localStorage.removeItem('isLoggedIn');
+                    alert("Bạn đã đăng xuất thành công!");
+                    
+                    // Tải lại trang để cập nhật giao diện về lại chữ LOGIN
+                    window.location.reload();
+                });
+            } else {
+                // Nếu CHƯA ĐĂNG NHẬP: Giữ nguyên nút LOGIN dẫn về trang đăng nhập
+                authBtn.innerText = "LOGIN";
+                authBtn.href = "index.html";
+                authBtn.classList.remove('is-logged-in');
+
+                // Tùy chọn: Chặn nút PLAY NOW nếu chưa đăng nhập
+                if(playBtn) {
+                    playBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        alert("Vui lòng ĐĂNG NHẬP để chơi game!");
+                        window.location.href = "index.html";
+                    });
+                }
+            }
+        });
     </script>
 
 </body>
