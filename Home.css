@@ -64,6 +64,101 @@ body {
 }
 
 /* =========================================
+   PROFILE PAGE (MỚI THÊM - CHỐNG DÍNH CỰC TỐT)
+========================================= */
+.profile-layout {
+    display: flex;
+    gap: 30px;              /* Khoảng cách giữa cột Avatar và cột Chỉ số */
+    margin-bottom: 40px;    /* Khoảng cách từ cụm Profile xuống bảng Recent Plays */
+}
+
+.profile-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.profile-avatar {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #00f2fe;
+    box-shadow: 0 0 20px rgba(0, 242, 254, 0.5);
+    margin-bottom: 25px;    /* Khoảng cách dưới ảnh Avatar */
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-card h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    margin-bottom: 15px;    /* Khoảng cách từ Tên người chơi xuống nút Rank */
+}
+
+.player-rank {
+    display: inline-block;
+    background: linear-gradient(135deg, #00f2fe 0%, #ec4899 100%);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+}
+
+/* Grid các ô chỉ số bên phải */
+.profile-stats {
+    flex: 2;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;              /* Khoảng cách giữa các ô Level, Accuracy... với nhau */
+}
+
+.stat-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
+    padding: 25px;          /* Khoảng trống bên trong ô chỉ số */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.stat-box h3 {
+    font-size: 0.9rem;
+    color: #7fd6ff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;    /* Khoảng cách từ chữ Tiêu đề xuống con số */
+}
+
+.stat-box span {
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    font-family: monospace; /* Số nhìn chuẩn gaming hơn */
+}
+
+/* Tách không gian tiêu đề cho khu vực Recent Plays */
+.recent-play h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    color: #7fd6ff;
+    letter-spacing: 3px;
+    margin-bottom: 30px;    /* Khoảng cách từ chữ "Recent Plays" xuống bảng số liệu */
+}
+
+/* =========================================
    HOME PAGE & HERO BANNER
 ========================================= */
 .hero-banner {
@@ -138,7 +233,7 @@ body {
 
 .page-link {
     text-decoration: none;
-    color: inherit;       
+    color: inherit;      
     display: block;    
     transition: 0.4s ease;   
 }
@@ -282,7 +377,7 @@ body {
 }
 
 /* =========================================
-   RANKING PAGE
+   RANKING PAGE & PROFILE RECENT PLAYS
 ========================================= */
 .ranking-table {
     width: 100%;
@@ -297,7 +392,7 @@ body {
 }
 
 .ranking-table td {
-    padding: 18px;
+    padding: 22px 20px;    /* Tăng nhẹ padding từ 18px lên 22px để bảng thoáng, không bị dính */
     color: rgba(255,255,255,.8);
     border-bottom: 1px solid rgba(255,255,255,.05);
 }
@@ -334,4 +429,8 @@ body {
     .page-header h1 { font-size: 2.2rem; letter-spacing: 5px; }
     .hero-banner h2 { font-size: 2rem; }
     .home-grid, .feature-grid, .music-grid, .news-grid { grid-template-columns: 1fr; }
+    
+    /* Responsive bổ sung riêng cho Profile */
+    .profile-layout { flex-direction: column; }
+    .profile-stats { grid-template-columns: 1fr; }
 }
