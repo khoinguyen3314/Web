@@ -122,7 +122,7 @@
             <a href="News.html">NEWS</a>
             <a href="Music.html">MUSIC</a>
             <a href="FAQ.html">FAQ</a>
-            <a href="/Recharge.html" class="auth-nav-btn" id="recharge-btn" style="display: none; border-color: rgba(0, 242, 254, 0.6); background: rgba(0, 242, 254, 0.1);">RECHARGE</a>
+            <a href="http://localhost:5173" class="auth-nav-btn" id="recharge-btn" style="display: none; border-color: rgba(0, 242, 254, 0.6); background: rgba(0, 242, 254, 0.1);">RECHARGE</a>
             <a href="index.html" class="auth-nav-btn" id="auth-btn">LOGIN</a>
         </nav>
     </header>
@@ -206,9 +206,14 @@
             const playBtn = document.getElementById('play-now-btn');
 
             const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            const currentUsername = localStorage.getItem('CurrentUsername');
 
             if (isLoggedIn) {
-                if(rechargeBtn) rechargeBtn.style.display = 'inline-block';
+                if(rechargeBtn) {
+                    rechargeBtn.style.display = 'inline-block';
+                    // Truyền thông tin qua URL để React (5173) nhận diện được
+                    rechargeBtn.href = `http://localhost:5173?user=${currentUsername}&auth=true`;
+                }
                 authBtn.innerText = "LOGOUT";
                 authBtn.href = "#"; 
                 authBtn.classList.add('is-logged-in'); 
