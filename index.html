@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,24 +10,27 @@
   <!-- GOOGLE FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
 
   <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    html{
-      scroll-behavior:smooth;
+    html {
+      scroll-behavior: smooth;
     }
 
-    body{
-      font-family:'Montserrat',sans-serif;
-      color:white;
-      overflow-x:hidden;
-      background:#0f0f2d; /* Nền Indigo sáng và rực rỡ hơn màu đen */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: white;
+      overflow-x: hidden;
+      background: #0f0f2d;
+      /* Nền Indigo sáng và rực rỡ hơn màu đen */
     }
 
     /* =========================================
@@ -92,82 +96,82 @@
         NAVBAR (BRIGHTER)
     ========================================= */
 
-    .navbar{
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:20px 60px;
-      z-index:999;
-      transition:0.4s ease;
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      z-index: 999;
+      transition: 0.4s ease;
     }
 
-    .navbar.scrolled{
-      background:rgba(15, 15, 45, 0.65);
-      backdrop-filter:blur(20px);
+    .navbar.scrolled {
+      background: rgba(15, 15, 45, 0.65);
+      backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .logo{
-      font-family:'Cinzel',serif;
-      font-size:2rem;
-      letter-spacing:6px;
-      font-weight:700;
-      color:white;
+    .logo {
+      font-family: 'Cinzel', serif;
+      font-size: 2rem;
+      letter-spacing: 6px;
+      font-weight: 700;
+      color: white;
       text-shadow: 0 0 25px rgba(0, 242, 254, 0.6), 0 0 10px rgba(0, 242, 254, 0.3);
     }
 
-    .nav-links{
-      display:flex;
-      align-items:center;
-      gap:30px;
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
     }
 
-    .nav-links a{
-      text-decoration:none;
-      color:rgba(255,255,255,0.85);
-      font-size:0.92rem;
-      position:relative;
-      transition:0.3s ease;
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.92rem;
+      position: relative;
+      transition: 0.3s ease;
     }
 
-    .nav-links a::after{
-      content:"";
-      position:absolute;
-      left:0;
-      bottom:-6px;
-      width:0%;
-      height:2px;
-      background:linear-gradient(90deg, #00f2fe, #4facfe);
-      transition:0.3s ease;
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, #00f2fe, #4facfe);
+      transition: 0.3s ease;
     }
 
-    .nav-links a:hover{
-      color:white;
+    .nav-links a:hover {
+      color: white;
       text-shadow: 0 0 15px rgba(0, 242, 254, 0.6);
     }
 
-    .nav-links a:hover::after{
-      width:100%;
+    .nav-links a:hover::after {
+      width: 100%;
     }
 
-    .lang-btn{
-      padding:10px 18px;
-      border-radius:14px;
-      border: 1px solid rgba(255,255,255,0.2);
-      background: rgba(255,255,255,0.1);
-      backdrop-filter:blur(10px);
-      color:white;
-      cursor:pointer;
+    .lang-btn {
+      padding: 10px 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      color: white;
+      cursor: pointer;
       font-weight: 500;
-      transition:0.3s ease;
+      transition: 0.3s ease;
     }
 
-    .lang-btn:hover{
-      transform:translateY(-2px);
+    .lang-btn:hover {
+      transform: translateY(-2px);
       border-color: rgba(0, 242, 254, 0.6);
       background: rgba(0, 242, 254, 0.15);
       box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
@@ -177,154 +181,154 @@
         HERO & GLOWING CARD (VIBRANT GLASS)
     ========================================= */
 
-    .hero{
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:30px;
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
       position: relative;
       z-index: 10;
     }
 
-    .hero-content{
-      position:relative;
-      overflow:hidden;
-      width:100%;
-      max-width:520px;
-      padding:55px 40px;
-      border-radius:34px;
+    .hero-content {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      max-width: 520px;
+      padding: 55px 40px;
+      border-radius: 34px;
       /* Tăng độ sáng cho nền panel để giảm sự u tối */
       background: linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.03));
       border: 1px solid rgba(255, 255, 255, 0.2);
-      backdrop-filter:blur(30px);
+      backdrop-filter: blur(30px);
       box-shadow:
-        0 30px 80px rgba(0,0,0,0.4),
+        0 30px 80px rgba(0, 0, 0, 0.4),
         0 0 40px rgba(0, 242, 254, 0.15),
         0 0 80px rgba(236, 72, 153, 0.1);
       animation: floatPanel 6s ease-in-out infinite;
     }
 
-    .hero-content::before{
-      content:"";
-      position:absolute;
-      top:0;
-      left:-50%;
-      width:40%;
-      height:2px;
+    .hero-content::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -50%;
+      width: 40%;
+      height: 2px;
       background: linear-gradient(90deg, transparent, #00f2fe, #ec4899, transparent);
       animation: scanline 4.5s linear infinite;
     }
 
-    .hero-glow{
-      position:absolute;
-      width:420px;
-      height:420px;
-      top:-180px;
-      right:-150px;
+    .hero-glow {
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      top: -180px;
+      right: -150px;
       background: radial-gradient(circle, rgba(0, 242, 254, 0.2) 0%, rgba(236, 72, 153, 0.12) 50%, transparent 70%);
-      pointer-events:none;
+      pointer-events: none;
       animation: pulseGlow 5s ease infinite;
     }
 
-    .hero-subtitle{
-      text-align:center;
-      text-transform:uppercase;
-      letter-spacing:5px;
-      font-size:0.95rem;
+    .hero-subtitle {
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      font-size: 0.95rem;
       font-weight: 600;
-      margin-bottom:35px;
-      color: rgba(255,255,255,0.9);
-      text-shadow: 0 0 10px rgba(255,255,255,0.2);
+      margin-bottom: 35px;
+      color: rgba(255, 255, 255, 0.9);
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
     }
 
     /* =========================================
         FORM ELEMENTS
     ========================================= */
 
-    .auth-form{
-      display:flex;
-      flex-direction:column;
-      gap:22px;
+    .auth-form {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
     }
 
-    .input-group{
-      position:relative;
+    .input-group {
+      position: relative;
     }
 
-    .input-group input{
-      width:100%;
-      padding:18px 20px;
-      border-radius:18px;
-      border: 1px solid rgba(255,255,255,0.18);
+    .input-group input {
+      width: 100%;
+      padding: 18px 20px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
       background: rgba(255, 255, 255, 0.05);
-      color:white;
-      font-size:0.95rem;
-      outline:none;
-      transition:0.35s ease;
-      backdrop-filter:blur(10px);
+      color: white;
+      font-size: 0.95rem;
+      outline: none;
+      transition: 0.35s ease;
+      backdrop-filter: blur(10px);
     }
 
-    .input-group input::placeholder{
-      color: rgba(255,255,255,0.5);
+    .input-group input::placeholder {
+      color: rgba(255, 255, 255, 0.5);
     }
 
-    .input-group input:focus{
+    .input-group input:focus {
       border-color: #00f2fe;
       background: rgba(255, 255, 255, 0.08);
       box-shadow: 0 0 30px rgba(0, 242, 254, 0.25);
-      transform:translateY(-1px);
+      transform: translateY(-1px);
     }
 
-    .input-group::after{
-      content:"";
-      position:absolute;
-      left:18px;
-      bottom:0;
-      width:0%;
-      height:2px;
+    .input-group::after {
+      content: "";
+      position: absolute;
+      left: 18px;
+      bottom: 0;
+      width: 0%;
+      height: 2px;
       background: linear-gradient(90deg, #00f2fe, #ffffff, #ec4899);
-      transition:0.4s ease;
+      transition: 0.4s ease;
     }
 
-    .input-group:focus-within::after{
-      width:calc(100% - 36px);
+    .input-group:focus-within::after {
+      width: calc(100% - 36px);
     }
 
     /* =========================================
         OPTIONS
     ========================================= */
 
-    .form-options{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      font-size:0.85rem;
+    .form-options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
     }
 
-    .remember-me{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      color: rgba(255,255,255,0.8);
+    .remember-me {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255, 255, 255, 0.8);
       cursor: pointer;
     }
 
-    .remember-me input{
-      accent-color:#00f2fe;
+    .remember-me input {
+      accent-color: #00f2fe;
       width: 15px;
       height: 15px;
     }
 
-    .forgot-password{
-      color: rgba(255,255,255,0.8);
-      text-decoration:none;
+    .forgot-password {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
       font-weight: 500;
-      transition:0.3s ease;
+      transition: 0.3s ease;
     }
 
-    .forgot-password:hover{
-      color:#00f2fe;
+    .forgot-password:hover {
+      color: #00f2fe;
       text-shadow: 0 0 8px rgba(0, 242, 254, 0.5);
     }
 
@@ -332,46 +336,46 @@
         LOGIN BUTTON (SUPER BRIGHT NEON)
     ========================================= */
 
-    .login-btn{
-      position:relative;
-      width:100%;
-      overflow:hidden;
-      border:none;
-      padding:18px;
-      border-radius:20px;
-      color:white;
-      cursor:pointer;
+    .login-btn {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border: none;
+      padding: 18px;
+      border-radius: 20px;
+      color: white;
+      cursor: pointer;
       background: linear-gradient(135deg, rgba(0, 242, 254, 0.45) 0%, rgba(236, 72, 153, 0.35) 100%);
       border: 1px solid rgba(255, 255, 255, 0.4);
-      transition:0.35s ease;
+      transition: 0.35s ease;
       box-shadow: 0 0 25px rgba(0, 242, 254, 0.25), 0 0 50px rgba(236, 72, 153, 0.15);
       animation: buttonPulse 3s infinite;
     }
 
-    .login-btn strong{
-      letter-spacing:4px;
-      font-size:1rem;
-      text-shadow: 0 1px 5px rgba(0,0,0,0.3);
+    .login-btn strong {
+      letter-spacing: 4px;
+      font-size: 1rem;
+      text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
     }
 
-    .login-btn::before{
-      content:"";
-      position:absolute;
-      top:0;
-      left:-100%;
-      width:60%;
-      height:100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
-      transform:skewX(-20deg);
-      transition:0.7s;
+    .login-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+      transform: skewX(-20deg);
+      transition: 0.7s;
     }
 
-    .login-btn:hover::before{
-      left:140%;
+    .login-btn:hover::before {
+      left: 140%;
     }
 
-    .login-btn:hover{
-      transform:translateY(-2px);
+    .login-btn:hover {
+      transform: translateY(-2px);
       border-color: rgba(255, 255, 255, 0.8);
       background: linear-gradient(135deg, rgba(0, 242, 254, 0.6) 0%, rgba(236, 72, 153, 0.5) 100%);
       box-shadow:
@@ -379,20 +383,20 @@
         0 0 80px rgba(236, 72, 153, 0.3);
     }
 
-    .register-text{
-      text-align:center;
-      font-size:0.9rem;
-      color: rgba(255,255,255,0.75);
+    .register-text {
+      text-align: center;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.75);
     }
 
-    .register-text a{
-      color:#00f2fe;
+    .register-text a {
+      color: #00f2fe;
       font-weight: 600;
-      text-decoration:none;
+      text-decoration: none;
       transition: 0.3s ease;
     }
 
-    .register-text a:hover{
+    .register-text a:hover {
       text-shadow: 0 0 10px rgba(0, 242, 254, 0.8);
     }
 
@@ -400,32 +404,32 @@
         FOOTER (CLEANER)
     ========================================= */
 
-    footer{
-      padding:40px 20px;
+    footer {
+      padding: 40px 20px;
       background: rgba(10, 8, 28, 0.8);
-      backdrop-filter:blur(15px);
-      border-top: 1px solid rgba(255,255,255,0.06);
-      text-align:center;
+      backdrop-filter: blur(15px);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      text-align: center;
       position: relative;
       z-index: 10;
     }
 
-    .footer-links{
-      margin-top:15px;
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:20px;
+    .footer-links {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
     }
 
-    .footer-links a{
-      color: rgba(255,255,255,0.65);
-      text-decoration:none;
-      transition:0.3s ease;
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.65);
+      text-decoration: none;
+      transition: 0.3s ease;
     }
 
-    .footer-links a:hover{
-      color:#00f2fe;
+    .footer-links a:hover {
+      color: #00f2fe;
       text-shadow: 0 0 8px rgba(0, 242, 254, 0.5);
     }
 
@@ -433,36 +437,54 @@
         ANIMATIONS
     ========================================= */
 
-    @keyframes scanline{
-      from { left:-50%; }
-      to { left:120%; }
-    }
-
-    @keyframes pulseGlow{
-      0%,100%{
-        transform:scale(1);
-        opacity:0.8;
+    @keyframes scanline {
+      from {
+        left: -50%;
       }
-      50%{
-        transform:scale(1.05);
-        opacity:1;
+
+      to {
+        left: 120%;
       }
     }
 
-    @keyframes buttonPulse{
-      0%,100%{
+    @keyframes pulseGlow {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 0.8;
+      }
+
+      50% {
+        transform: scale(1.05);
+        opacity: 1;
+      }
+    }
+
+    @keyframes buttonPulse {
+
+      0%,
+      100% {
         box-shadow: 0 0 25px rgba(0, 242, 254, 0.2);
       }
-      50%{
+
+      50% {
         box-shadow:
           0 0 45px rgba(0, 242, 254, 0.45),
           0 0 90px rgba(236, 72, 153, 0.3);
       }
     }
 
-    @keyframes floatPanel{
-      0%,100%{ transform:translateY(0px); }
-      50%{ transform:translateY(-8px); }
+    @keyframes floatPanel {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
     }
   </style>
 </head>
@@ -485,9 +507,9 @@
     </div>
     <nav class="nav-links">
       <a href="Home.Html">Home</a>
-        <a href="News.html">News</a>
-        <a href="Music.html">Music</a>
-        <a href="FAQ.html">FAQ</a>
+      <a href="News.html">News</a>
+      <a href="Music.html">Music</a>
+      <a href="FAQ.html">FAQ</a>
       <button class="lang-btn">
         EN / JP
       </button>
@@ -502,34 +524,16 @@
         Login To Your Account
       </p>
 
-      <form class="auth-form">
+      <form class="auth-form" id="loginForm">
         <div class="input-group">
-          <input
-            type="email"
-            placeholder="Email or Username"
-            required
-          >
+          <input id="loginUsername" type="text" placeholder="Email or Username" required>
         </div>
 
         <div class="input-group">
-          <input
-            type="password"
-            placeholder="Password"
-            required
-          >
+          <input id="loginPassword" type="password" placeholder="Password" required>
         </div>
 
-        <div class="form-options">
-          <label class="remember-me">
-            <input type="checkbox">
-            <span>
-              Remember me
-            </span>
-          </label>
-          <a href="#" class="forgot-password">
-            Forgot Password?
-          </a>
-        </div>
+        <p id="messageText" style="text-align:center; color:white;"></p>
 
         <button type="submit" class="login-btn">
           <strong>LOGIN</strong>
@@ -537,10 +541,34 @@
 
         <p class="register-text">
           Chưa có tài khoản?
-          <a href="#">
-            Đăng ký ngay
-          </a>
+          <a href="#" id="showRegister">Đăng ký ngay</a>
         </p>
+      </form>
+
+      <form class="auth-form" id="registerForm" style="display:none;">
+        <div class="input-group">
+          <input id="registerUsername" type="text" placeholder="Username" required>
+        </div>
+
+        <div class="input-group">
+          <input id="registerEmail" type="email" placeholder="Email" required>
+        </div>
+
+        <div class="input-group">
+          <input id="registerPassword" type="password" placeholder="Password" required>
+        </div>
+
+        <p id="registerMessage" style="text-align:center; color:white;"></p>
+
+        <button type="submit" class="login-btn">
+          <strong>REGISTER</strong>
+        </button>
+
+        <p class="register-text">
+          Đã có tài khoản?
+          <a href="#" id="showLogin">Đăng nhập</a>
+        </p>
+      </form>
       </form>
     </div>
   </section>
@@ -563,9 +591,9 @@
     // Xử lý hiệu ứng cuộn cho Navbar
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
-      if(window.scrollY > 50){
+      if (window.scrollY > 50) {
         navbar.classList.add('scrolled');
-      }else{
+      } else {
         navbar.classList.remove('scrolled');
       }
     });
@@ -616,7 +644,7 @@
         this.spin = (Math.random() - 0.5) * 0.006;
         this.opacity = Math.random() * 0.35 + 0.15; // Tăng độ mờ sáng (trước đây là 0.05 - 0.25)
         this.points = [];
-        
+
         // Thiết kế đa giác ngẫu nhiên sắc nét (3-5 đỉnh)
         const numPoints = Math.floor(Math.random() * 3) + 3;
         for (let i = 0; i < numPoints; i++) {
@@ -656,7 +684,7 @@
         ctx.save();
         ctx.translate(this.x, this.y);
         ctx.rotate(this.angle);
-        
+
         // Gradient phản xạ màu đa sắc rực rỡ (Cyan - Pink)
         const gradient = ctx.createLinearGradient(-this.size, -this.size, this.size, this.size);
         gradient.addColorStop(0, `rgba(0, 242, 254, ${this.opacity})`);
@@ -760,10 +788,10 @@
     let mouseGlowPulse = 0;
     function drawMouseGlow() {
       if (mouse.x === null || mouse.y === null) return;
-      
+
       mouseGlowPulse += 0.03;
       const sizeFactor = Math.sin(mouseGlowPulse) * 15;
-      
+
       const glowGrad = ctx.createRadialGradient(
         mouse.x, mouse.y, 0,
         mouse.x, mouse.y, mouse.radius + sizeFactor
@@ -806,9 +834,107 @@
     }
 
     // Khởi động hoạt ảnh khi load xong trang
-    window.onload = function() {
+    window.onload = function () {
       animate();
     };
   </script>
+  <script>
+    const baseURL = "https://rejoin-synopses-backfire.ngrok-free.dev/api/Auth/";
+
+    const loginForm = document.getElementById("loginForm");
+    const registerForm = document.getElementById("registerForm");
+
+    document.getElementById("showRegister").onclick = function (e) {
+      e.preventDefault();
+      loginForm.style.display = "none";
+      registerForm.style.display = "flex";
+    };
+
+    document.getElementById("showLogin").onclick = function (e) {
+      e.preventDefault();
+      registerForm.style.display = "none";
+      loginForm.style.display = "flex";
+    };
+
+    loginForm.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const message = document.getElementById("messageText");
+      message.style.color = "white";
+      message.innerText = "Logging in...";
+
+      const data = {
+        Username: document.getElementById("loginUsername").value,
+        Password: document.getElementById("loginPassword").value
+      };
+
+      try {
+        const res = await fetch(baseURL + "login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(data)
+        });
+
+        const text = await res.text();
+
+        if (res.ok) {
+          message.style.color = "lightgreen";
+          message.innerText = "Login successful!";
+          localStorage.setItem("CurrentUsername", data.Username);
+          window.location.href = "Home.html";
+        } else {
+          message.style.color = "red";
+          message.innerText = text || "Invalid username or password";
+        }
+      } catch (err) {
+        message.style.color = "red";
+        message.innerText = "Cannot connect to server!";
+      }
+    });
+
+    registerForm.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const message = document.getElementById("registerMessage");
+      message.style.color = "white";
+      message.innerText = "Registering account...";
+
+      const data = {
+        Username: document.getElementById("registerUsername").value,
+        Email: document.getElementById("registerEmail").value,
+        Password: document.getElementById("registerPassword").value
+      };
+
+      try {
+        const res = await fetch(baseURL + "register", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(data)
+        });
+
+        const text = await res.text();
+
+        if (res.ok) {
+          message.style.color = "lightgreen";
+          message.innerText = "Register successful! Please login.";
+          setTimeout(() => {
+            registerForm.style.display = "none";
+            loginForm.style.display = "flex";
+          }, 1000);
+        } else {
+          message.style.color = "red";
+          message.innerText = text || "Register failed!";
+        }
+      } catch (err) {
+        message.style.color = "red";
+        message.innerText = "Cannot connect to server!";
+      }
+    });
+  </script>
 </body>
+
 </html>
