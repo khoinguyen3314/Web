@@ -313,6 +313,15 @@ function App() {
                 <ChevronRight size={20} />
               </button>
 
+              <button className="method-item-web" onClick={() => handlePayment(selectedPackage.id, 'momo_atm')}>
+                <div className="method-icon-momo" />
+                <div className="method-text">
+                    <span className="method-name">MoMo ATM</span>
+                    <span className="method-sub">Payment via Domestic ATM cards</span>
+                </div>
+                <ChevronRight size={20} />
+              </button>
+
               {selectedPackage?.price === 0 && (
                 <button className="method-item-web claim-item-web" onClick={() => handlePayment(selectedPackage.id, 'free')}>
                     <div className="method-icon-free"><Gift size={28} color="#10b981" /></div>

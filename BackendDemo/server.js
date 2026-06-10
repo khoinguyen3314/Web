@@ -397,7 +397,7 @@ app.post(['/api/payment/momo', '/api/payment/momo_atm'], async (req, res) => {
         console.log(JSON.stringify(response.data, null, 2));
 
         if (response.data && response.data.payUrl) {
-            transactions.push({ orderId, userId, packageId, status: 'pending', provider: 'momo' });
+            transactions.push({ orderId, userId, packageId, status: 'pending', provider: isAtm ? 'momo_atm' : 'momo' });
             res.json({ paymentUrl: response.data.payUrl });
         } else {
             res.status(400).json({ message: response.data.message || 'MoMo rejected the request' });
