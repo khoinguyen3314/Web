@@ -75,7 +75,7 @@
             width: 100%;
         }
 
-        /* --- Style gốc cho nút Auth (Mặc định là LOGIN - Xanh Cyan) --- */
+        /* --- Style gốc cho nút Auth --- */
         .auth-nav-btn {
             text-decoration: none;
             padding: 10px 18px;
@@ -94,11 +94,6 @@
             border-color: rgba(0, 242, 254, 0.6);
             background: rgba(0, 242, 254, 0.15);
             box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
-        }
-
-        /* --- Style khi chuyển thành LOGOUT (Đỏ/Hồng Neon) --- */
-        .auth-nav-btn.is-logged-in {
-            border-color: rgba(255, 255, 255, 0.2);
         }
 
         .auth-nav-btn.is-logged-in:hover {
@@ -121,20 +116,18 @@
     <div class="ambient-glow-center"></div>
 
     <header class="navbar" id="navbar">
-        <div class="logo">
-            RHYTHM GAME
-        </div>
+        <div class="logo">RHYTHM GAME</div>
         <nav class="nav-links">
-            <a href="Home.html">Home</a>
-            <a href="News.html">News</a>
-            <a href="Music.html">Music</a>
+            <a href="Home.html">HOME</a>
+            <a href="News.html">NEWS</a>
+            <a href="Music.html">MUSIC</a>
             <a href="FAQ.html">FAQ</a>
+            <a href="/Recharge.html" class="auth-nav-btn" id="recharge-btn" style="display: none; border-color: rgba(0, 242, 254, 0.6); background: rgba(0, 242, 254, 0.1);">RECHARGE</a>
             <a href="index.html" class="auth-nav-btn" id="auth-btn">LOGIN</a>
         </nav>
     </header>
 
     <main class="page-container">
-
         <div class="page-header">
             <h1>RHYTHM GAME</h1>
             <p>Feel The Beat Beyond Reality</p>
@@ -174,6 +167,24 @@
             </div>
         </section>
 
+        <section class="section-space">
+            <div class="feature-grid">
+                <a href="News.html" class="glass-card feature-card page-link">
+                    <h3>📰 NEWS</h3>
+                    <p>Xem các bản cập nhật, sự kiện và thông báo mới nhất.</p>
+                </a>
+
+                <a href="Music.html" class="glass-card feature-card page-link">
+                    <h3>🎵 MUSIC</h3>
+                    <p>Khám phá thư viện bài hát và nghe thử các track.</p>
+                </a>
+
+                <a href="FAQ.html" class="glass-card feature-card page-link">
+                    <h3>❓ FAQ</h3>
+                    <p>Câu hỏi thường gặp, hướng dẫn và hỗ trợ người chơi.</p>
+                </a>
+            </div>
+        </section>
     </main>
 
     <script src="background.js"></script>
@@ -188,38 +199,33 @@
             }
         });
 
-        // 2. LOGIC KIỂM TRA TRẠNG THÁI ĐĂNG NHẬP (QUAN TRỌNG)
+        // 2. LOGIC KIỂM TRA TRẠNG THÁI ĐĂNG NHẬP
         document.addEventListener("DOMContentLoaded", () => {
             const authBtn = document.getElementById('auth-btn');
+            const rechargeBtn = document.getElementById('recharge-btn');
             const playBtn = document.getElementById('play-now-btn');
 
-            // Kiểm tra biến 'isLoggedIn' trong localStorage (Trang login của bạn cần set biến này bằng true sau khi đăng nhập thành công)
             const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
 
             if (isLoggedIn) {
-                // Nếu ĐÃ ĐĂNG NHẬP: Biến nút thành LOGOUT
+                if(rechargeBtn) rechargeBtn.style.display = 'inline-block';
                 authBtn.innerText = "LOGOUT";
-                authBtn.href = "#"; // Chặn không cho nhảy sang index.html ngay lập tức
-                authBtn.classList.add('is-logged-in'); // Thêm class đổi màu đỏ khi hover
+                authBtn.href = "#"; 
+                authBtn.classList.add('is-logged-in'); 
 
-                // Cài đặt sự kiện click để đăng xuất
                 authBtn.addEventListener('click', (e) => {
                     e.preventDefault();
-                    
-                    // Xóa trạng thái đăng nhập
                     localStorage.removeItem('isLoggedIn');
+                    localStorage.removeItem('CurrentUsername');
                     alert("Bạn đã đăng xuất thành công!");
-                    
-                    // Tải lại trang để cập nhật giao diện về lại chữ LOGIN
                     window.location.reload();
                 });
             } else {
-                // Nếu CHƯA ĐĂNG NHẬP: Giữ nguyên nút LOGIN dẫn về trang đăng nhập
+                if(rechargeBtn) rechargeBtn.style.display = 'none';
                 authBtn.innerText = "LOGIN";
                 authBtn.href = "index.html";
                 authBtn.classList.remove('is-logged-in');
 
-                // Tùy chọn: Chặn nút PLAY NOW nếu chưa đăng nhập
                 if(playBtn) {
                     playBtn.addEventListener('click', (e) => {
                         e.preventDefault();
@@ -230,7 +236,6 @@
             }
         });
     </script>
-
 </body>
 
 </html>
