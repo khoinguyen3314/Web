@@ -178,7 +178,15 @@ export default function App() {
               onPress={() => initiatePayment(selectedPackage.id, 'momo')}
             >
               <Wallet color="#A50064" size={24} />
-              <Text style={styles.methodText}>MoMo Sandbox</Text>
+              <Text style={styles.methodText}>MoMo Wallet</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity 
+              style={[styles.methodBtn, { marginTop: 15 }]} 
+              onPress={() => initiatePayment(selectedPackage.id, 'momo_atm')}
+            >
+              <CreditCard color="#A50064" size={24} />
+              <Text style={styles.methodText}>MoMo ATM Card</Text>
             </TouchableOpacity>
 
             <TouchableOpacity 

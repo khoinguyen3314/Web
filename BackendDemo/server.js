@@ -26,16 +26,37 @@ app.get('/', (req, res) => {
 });
 
 // Fake database in-memory
-let users = {}; // { userId: { balance: 0 } }
+let users = {}; // { username: { password, email, balance: 0 } }
 const transactions = [];
 
-function getUser(userId) {
-    if (!userId) return null;
-    if (!users[userId]) {
-        users[userId] = { balance: 0 };
+function getUser(username) {
+    if (!username) return null;
+    if (!users[username]) {
+        // For backward compatibility with userId check
+        users[username] = { balance: 0 };
     }
-    return users[userId];
+    return users[username];
 }
+
+// --- Auth Routes ---
+app.post('/api/Auth/register', (req, res) => {
+    const { Username, Email, Password } = req.body;
+    if (users[Username]) return res.status(400).send("User already exists");
+    users[Username] = { password: Password, email: Email, balance: 0 };
+    console.log(`[Auth] Registered new user: ${Username}`);
+    res.status(200).send("Register successful");
+});
+
+app.post('/api/Auth/login', (req, res) => {
+    const { Username, Password } = req.body;
+    const user = users[Username];
+    if (user && user.password === Password) {
+        console.log(`[Auth] User logged in: ${Username}`);
+        res.status(200).send("Login successful");
+    } else {
+        res.status(401).send("Invalid username or password");
+    }
+});
 
 const PACKAGES = [
     { id: 'p0', name: 'Gói Tân Thủ', price: 20000, amount: 200, description: '200 RC' },
@@ -376,7 +397,7 @@ app.post(['/api/payment/momo', '/api/payment/momo_atm'], async (req, res) => {
         console.log(JSON.stringify(response.data, null, 2));
 
         if (response.data && response.data.payUrl) {
-            transactions.push({ orderId, userId, packageId, status: 'pending', provider: 'momo' });
+            transactions.push({ orderId, userId, packageId, status: 'pending', provider: isAtm ? 'momo_atm' : 'momo' });
             res.json({ paymentUrl: response.data.payUrl });
         } else {
             res.status(400).json({ message: response.data.message || 'MoMo rejected the request' });
