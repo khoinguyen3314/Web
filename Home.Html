@@ -24,10 +24,11 @@
             padding: 20px 60px;
             z-index: 999;
             transition: 0.4s ease;
+            box-sizing: border-box;
         }
 
         .navbar.scrolled {
-            background: rgba(15, 15, 45, 0.65);
+            background: rgba(15, 15, 45, 0.85);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
@@ -41,25 +42,82 @@
             text-shadow: 0 0 25px rgba(0, 242, 254, 0.6), 0 0 10px rgba(0, 242, 254, 0.3);
         }
 
-        .nav-links {
+        /* --- Nút 3 gạch (Hamburger Menu) --- */
+        .menu-toggle {
             display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .menu-toggle .bar {
+            height: 3px;
+            width: 100%;
+            background-color: white;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+        }
+
+        /* Hiệu ứng chuyển bánh răng thành dấu X khi mở */
+        .menu-toggle.active .bar:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+        .menu-toggle.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+        .menu-toggle.active .bar:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+
+        /* --- Menu nội dung ẩn/hiển thị ẩn bên phải --- */
+        .nav-links {
+            position: fixed;
+            top: 0;
+            right: -320px; /* Ẩn menu ra ngoài màn hình */
+            width: 300px;
+            height: 100vh;
+            background: rgba(10, 10, 30, 0.95);
+            backdrop-filter: blur(25px);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 30px;
+            justify-content: center;
+            gap: 35px;
+            transition: 0.4s cubic-bezier(0.1, 0.9, 0.2, 1);
+            z-index: 1000;
+            padding: 40px;
+            box-sizing: border-box;
+        }
+
+        /* Khi bấm kích hoạt menu */
+        .nav-links.active {
+            right: 0; /* Đẩy menu trượt vào trong */
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
         }
 
         .nav-links a {
             text-decoration: none;
             color: rgba(255, 255, 255, 0.85);
-            font-size: 0.92rem;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
             position: relative;
             transition: 0.3s ease;
+            width: 100%;
+            text-align: center;
+            padding: 10px 0;
         }
 
         .nav-links a::after {
             content: "";
             position: absolute;
-            left: 0;
-            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
             width: 0%;
             height: 2px;
             background: linear-gradient(90deg, #00f2fe, #4facfe);
@@ -72,21 +130,22 @@
         }
 
         .nav-links a:hover::after {
-            width: 100%;
+            width: 50%;
         }
 
-        /* --- Style gốc cho nút Auth --- */
+        /* --- Nút Auth trong Menu dọc --- */
         .auth-nav-btn {
             text-decoration: none;
-            padding: 10px 18px;
+            padding: 12px 24px;
             border-radius: 14px;
             border: 1px solid rgba(255, 255, 255, 0.2);
             background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
             color: white;
             cursor: pointer;
             font-weight: 500;
             transition: 0.3s ease;
+            width: 80%;
+            text-align: center;
         }
 
         .auth-nav-btn:hover {
@@ -117,11 +176,19 @@
 
     <header class="navbar" id="navbar">
         <div class="logo">RHYTHM GAME</div>
-        <nav class="nav-links">
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <nav class="nav-links" id="nav-links">
             <a href="Home.html">HOME</a>
             <a href="News.html">NEWS</a>
             <a href="Music.html">MUSIC</a>
             <a href="FAQ.html">FAQ</a>
+            <a href="Profile.html" id="profile-btn" style="display: none;">PROFILE</a>
             <a href="http://localhost:5173" class="auth-nav-btn" id="recharge-btn" style="display: none; border-color: rgba(0, 242, 254, 0.6); background: rgba(0, 242, 254, 0.1);">RECHARGE</a>
             <a href="index.html" class="auth-nav-btn" id="auth-btn">LOGIN</a>
         </nav>
@@ -199,19 +266,40 @@
             }
         });
 
-        // 2. LOGIC KIỂM TRA TRẠNG THÁI ĐĂNG NHẬP
+        // 2. Logic đóng/mở Menu 3 gạch
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Tự động đóng menu lại nếu bấm trúng vùng trống bên ngoài
+        document.addEventListener('click', (e) => {
+            if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // 3. LOGIC KIỂM TRA TRẠNG THÁI ĐĂNG NHẬP
         document.addEventListener("DOMContentLoaded", () => {
             const authBtn = document.getElementById('auth-btn');
             const rechargeBtn = document.getElementById('recharge-btn');
             const playBtn = document.getElementById('play-now-btn');
+            const profileBtn = document.getElementById('profile-btn');
 
             const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
             const currentUsername = localStorage.getItem('CurrentUsername');
 
             if (isLoggedIn) {
+                if(profileBtn) {
+                    profileBtn.style.display = 'inline-block';
+                }
+
                 if(rechargeBtn) {
                     rechargeBtn.style.display = 'inline-block';
-                    // Truyền thông tin qua URL để React (5173) nhận diện được
                     rechargeBtn.href = `http://localhost:5173?user=${currentUsername}&auth=true`;
                 }
                 authBtn.innerText = "LOGOUT";
@@ -226,7 +314,9 @@
                     window.location.reload();
                 });
             } else {
+                if(profileBtn) profileBtn.style.display = 'none';
                 if(rechargeBtn) rechargeBtn.style.display = 'none';
+                
                 authBtn.innerText = "LOGIN";
                 authBtn.href = "index.html";
                 authBtn.classList.remove('is-logged-in');
