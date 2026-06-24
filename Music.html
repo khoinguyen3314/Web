@@ -6,10 +6,166 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Library - Rhythm Game</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght=300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="background.css">
-<link rel="stylesheet" href="Home.css">
+    <link rel="stylesheet" href="Home.css">
+    
+    <style>
+        /* --- CSS Navbar đồng bộ hệ thống --- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            z-index: 999;
+            transition: 0.4s ease;
+            box-sizing: border-box;
+        }
+
+        .navbar.scrolled {
+            background: rgba(15, 15, 45, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            letter-spacing: 6px;
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 0 25px rgba(0, 242, 254, 0.6), 0 0 10px rgba(0, 242, 254, 0.3);
+        }
+
+        /* --- Nút 3 gạch (Hamburger Menu) --- */
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .menu-toggle .bar {
+            height: 3px;
+            width: 100%;
+            background-color: white;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+        }
+
+        /* Hiệu ứng chuyển menu thành dấu X */
+        .menu-toggle.active .bar:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+        .menu-toggle.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+        .menu-toggle.active .bar:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+
+        /* --- Menu nội dung ẩn bên phải --- */
+        .nav-links {
+            position: fixed;
+            top: 0;
+            right: -320px; 
+            width: 300px;
+            height: 100vh;
+            background: rgba(10, 10, 30, 0.95);
+            backdrop-filter: blur(25px);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 35px;
+            transition: 0.4s cubic-bezier(0.1, 0.9, 0.2, 1);
+            z-index: 1000;
+            padding: 40px;
+            box-sizing: border-box;
+        }
+
+        .nav-links.active {
+            right: 0; 
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            position: relative;
+            transition: 0.3s ease;
+            width: 100%;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 0%;
+            height: 2px;
+            background: linear-gradient(90deg, #00f2fe, #4facfe);
+            transition: 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: white;
+            text-shadow: 0 0 15px rgba(0, 242, 254, 0.6);
+        }
+
+        .nav-links a:hover::after {
+            width: 50%;
+        }
+
+        /* --- Nút Auth --- */
+        .auth-nav-btn {
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            cursor: pointer;
+            font-weight: 500;
+            transition: 0.3s ease;
+            width: 80%;
+            text-align: center;
+        }
+
+        .auth-nav-btn:hover {
+            transform: translateY(-2px);
+            border-color: rgba(0, 242, 254, 0.6);
+            background: rgba(0, 242, 254, 0.15);
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+        }
+
+        .auth-nav-btn.is-logged-in:hover {
+            border-color: rgba(255, 75, 75, 0.6);
+            background: rgba(255, 75, 75, 0.15);
+            box-shadow: 0 0 20px rgba(255, 75, 75, 0.4);
+            text-shadow: 0 0 10px rgba(255, 75, 75, 0.6);
+        }
+
+        /* Đẩy nội dung trang xuống để không bị Navbar che mất */
+        .page-container {
+            padding-top: 120px;
+        }
+    </style>
 </head>
 
 <body>
@@ -19,6 +175,26 @@
     <div class="ambient-glow-1"></div>
     <div class="ambient-glow-2"></div>
     <div class="ambient-glow-center"></div>
+
+    <header class="navbar" id="navbar">
+        <div class="logo">RHYTHM GAME</div>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <nav class="nav-links" id="nav-links">
+            <a href="Home.html">HOME</a>
+            <a href="News.html">NEWS</a>
+            <a href="Music.html">MUSIC</a>
+            <a href="FAQ.html">FAQ</a>
+            <a href="Profile.html" id="profile-btn" style="display: none;">PROFILE</a>
+            <a href="http://localhost:5173" class="auth-nav-btn" id="recharge-btn" style="display: none; border-color: rgba(0, 242, 254, 0.6); background: rgba(0, 242, 254, 0.1);">RECHARGE</a>
+            <a href="index.html" class="auth-nav-btn" id="auth-btn">LOGIN</a>
+        </nav>
+    </header>
 
     <main class="page-container">
 
@@ -82,6 +258,68 @@
     </main>
 
     <script src="background.js"></script>
+    <script>
+        // 1. Hiệu ứng cuộn Navbar
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
 
+        // 2. Logic đóng/mở Menu 3 gạch
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // 3. Logic kiểm tra trạng thái đăng nhập
+        document.addEventListener("DOMContentLoaded", () => {
+            const authBtn = document.getElementById('auth-btn');
+            const rechargeBtn = document.getElementById('recharge-btn');
+            const profileBtn = document.getElementById('profile-btn');
+
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            const currentUsername = localStorage.getItem('CurrentUsername');
+
+            if (isLoggedIn) {
+                if(profileBtn) profileBtn.style.display = 'inline-block';
+                if(rechargeBtn) {
+                    rechargeBtn.style.display = 'inline-block';
+                    rechargeBtn.href = `http://localhost:5173?user=${currentUsername}&auth=true`;
+                }
+                authBtn.innerText = "LOGOUT";
+                authBtn.href = "#"; 
+                authBtn.classList.add('is-logged-in'); 
+
+                authBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    localStorage.removeItem('isLoggedIn');
+                    localStorage.removeItem('CurrentUsername');
+                    alert("Bạn đã đăng xuất thành công!");
+                    window.location.reload();
+                });
+            } else {
+                if(profileBtn) profileBtn.style.display = 'none';
+                if(rechargeBtn) rechargeBtn.style.display = 'none';
+                authBtn.innerText = "LOGIN";
+                authBtn.href = "index.html";
+                authBtn.classList.remove('is-logged-in');
+            }
+        });
+    </script>
 </body>
+
 </html>
